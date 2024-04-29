@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <title>Detail Produk</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            padding-top: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .product-detail {
+            max-width: 500px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .product-image {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            margin-bottom: 20px;
+        }
+        .product-title {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        .product-price {
+            font-size: 18px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        .product-description {
+            margin-bottom: 20px;
+        }
+        .product-back {
+            display: block;
+            text-align: center;
+            text-decoration: none;
+            color: #fff;
+            background-color: rgb(27, 113, 170); 
+            border-radius: 3px;
+            padding: 5px 10px;
+            font-size: 14px;
+            width: fit-content;
+            margin: 0 auto;
+        }
+        .quantity {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .quantity input {
+            width: 40px;
+            text-align: center;
+            margin: 0 10px;
+        }
+        .quantity button {
+            border: none;
+            background-color: rgb(27, 113, 170); 
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        .add-to-cart {
+            background-color: rgb(27, 113, 170); 
+            color: #fff;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 3px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .add-to-cart:hover {
+            background-color: rgb(27, 113, 170); 
+        }
+    </style>
+</head>
+<body>
+    <div class="product-detail">
+        <a href="/kaimonoren/katalog"><img src="https://i2.wp.com/matuloo.com/wp-content/uploads/2017/02/backbutton.png?fit=800%2C400" alt="" width="80px"></a>
+        <br>
+        <img src="<%= product.foto %>" class="product-image" alt="<%= product.nama %>">
+        <h2 class="product-title"><%= product.nama %></h2>
+        <p class="product-price">Rp.<%= product.harga %></p>
+        <div class="star-rating product-rating">
+            <p class="rating-text" style="font-size: 10px;">Rating: </p>
+            <% for (let i = 1; i <= 5; i++) { %>
+                <% if (i <= product.rating) { %>
+                    <span class="material-icons checked">star</span>
+                <% } else { %>
+                    <span class="material-icons">star_border</span>
+                <% } %>
+            <% } %>
+        </div>
+        <p class="product-description" style="background-color: #858585; color: #fff;">Deskripsi Produk</p>
+        <p class="product-description">Bahan: <%= product.bahan %></p>
+        <p class="product-description">Varian: <%= product.varian %></p>
+        <p class="product-description"><%= product.deskripsi %></p>
+        <p class="product-description" style="background-color: #858585; color: #fff;">Penilaian Produk</p>
+        <br>
+        <p class="product-description" style="background-color: #858585; color: #fff; text-align: center;">-</p>
+
+        <div class="quantity">
+            <button onclick="decreaseQuantity()">-</button>
+            <input type="number" id="quantity" value="1" min="1">
+            <button onclick="increaseQuantity()">+</button>
+        </div>
+
+        <button class="add-to-cart" onclick="addToCart()">Tambah ke Keranjang</button>
+    </div>
+
+    <script>
+        function increaseQuantity() {
+            const quantityInput = document.getElementById('quantity');
+            let currentValue = parseInt(quantityInput.value);
+            quantityInput.value = currentValue + 1;
+        }
+
+        function decreaseQuantity() {
+            const quantityInput = document.getElementById('quantity');
+            let currentValue = parseInt(quantityInput.value);
+            if (currentValue > 1) {
+                quantityInput.value = currentValue - 1;
+            }
+        }
+
+        function addToCart() {
+            const quantity = document.getElementById('quantity').value;
+            alert(`Barang berhasil ditambahkan ke keranjang dengan jumlah ${quantity}`);
+        }
+    </script>
+</body>
+</html>

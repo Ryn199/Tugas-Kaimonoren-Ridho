@@ -1,0 +1,76 @@
+<!-- DataTales Example -->
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+      <!-- Button trigger modal -->
+      <button
+        type="button"
+        class="btn btn-outline-primary btn-sm"
+        data-toggle="modal"
+        data-target="#add-modal"
+      >
+        Add
+      </button>
+    </div>
+    <div class="card-body">
+      <div class="table-responsive">
+        <table
+          class="table table-bordered"
+          id="dataTable"
+          width="100%"
+          cellspacing="0"
+        >
+          <thead>
+            <tr>
+              <th>No</th>
+              <th>Nama Produk</th>
+              <th>Harga Produk</th>
+              <th>Deskripsi</th>
+              <th>Varian</th>
+              <th>Bahan</th>
+              <th>Stok</th>
+              <th>Foto</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% for(let i = 0; i < kaimonoren.length; i++){ %>
+            <tr>
+              <td><%= i +1 %></td>
+              <td><%= kaimonoren[i].nama %></td>
+              <td><%= kaimonoren[i].harga %></td>
+              <td><%= kaimonoren[i].deskripsi %></td>
+              <td><%= kaimonoren[i].varian %></td>
+              <td><%= kaimonoren[i].bahan %></td>
+              <td><%= kaimonoren[i].stok %></td>
+              <td><img src="<%= kaimonoren[i].foto %>" alt="<%= kaimonoren[i].foto %>"></td>
+              <td class="text-center">
+                <form action="/kaimonoren/<%= kaimonoren[i]._id %>?_method=DELETE" method="POST">
+                  <a
+                  href="javascript:void()"
+                  class="btn btn-outline-warning btn-sm button-update"
+                  data-id="<%= kaimonoren[i].id %>"
+                  data-nama="<%= kaimonoren[i].nama %>"
+                  data-harga="<%= kaimonoren[i].harga %>"
+                  data-deskripsi="<%= kaimonoren[i].deskripsi %>"
+                  data-varian="<%= kaimonoren[i].varian %>"
+                  data-bahan="<%= kaimonoren[i].bahan %>"
+                  data-stok="<%= kaimonoren[i].stok %>"
+                  data-foto="<%= kaimonoren[i].foto %>"
+                  data-rating="<%= kaimonoren[i].rating %>"
+                  data-terjual="<%= kaimonoren[i].terjual %>"
+                >Edit</a>
+                <button 
+                    type="submit" 
+                    class="btn btn-outline-danger btn-sm" 
+                    onclick="return confirm('Apa kamu yakin ingin menghapus produk ini?');">
+                  Delete
+                </button>
+              </form>
+              </td>
+            </tr>
+            <% } %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>

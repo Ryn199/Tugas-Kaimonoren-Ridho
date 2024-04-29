@@ -1,0 +1,125 @@
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="edit-modal"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Edit Produk</h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form action="/kaimonoren/kelola?_method=PUT" method="POST">
+        <div class="modal-body">
+          <div class="form-group">
+            <label for="name">Nama Produk</label>
+            <input
+              type="text"
+              class="form-control nama"
+              name="nama"
+              nama="Enter Nama"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="name">Harga</label>
+            <input
+              type="number"
+              class="form-control harga"
+              name="harga"
+              nama="Enter harga"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="name">Deskripsi</label>
+            <textarea
+              type="text"
+              class="form-control deskripsi"
+              name="deskripsi"
+              nama="Enter deskripsi"
+              rows="3"
+              required
+            ></textarea>
+          </div>
+          <div class="form-group">
+            <label for="name">Varian</label>
+            <input
+              type="text"
+              class="form-control varian"
+              name="varian"
+              nama="Enter varian"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="name">Bahan</label>
+            <input
+              type="text"
+              class="form-control bahan"
+              name="bahan"
+              nama="Enter bahan"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="name">Stok</label>
+            <input
+              type="number"
+              class="form-control stok"
+              name="stok"
+              nama="Enter stok"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="name">Foto</label>
+            <input
+              type="text"
+              class="form-control foto"
+              name="foto"
+              nama="Enter foto"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <input
+              type="hidden"
+              class="form-control rating"
+              name="rating"
+              nama="Enter rating"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <input
+              type="hidden"
+              class="form-control terjual"
+              name="terjual"
+              nama="Enter terjual"
+              required
+            />
+          </div>
+        </div>
+        <div class="modal-footer">
+          <input type="hidden" class="id" name="id" />
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">
+            Close
+          </button>
+          <button type="submit" class="btn btn-primary">Update</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

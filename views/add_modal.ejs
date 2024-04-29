@@ -1,0 +1,131 @@
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="add-modal"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Add Product</h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form action="/kaimonoren/kelola" method="POST">
+        <div class="modal-body">
+          <div class="form-group">
+            <label for="name">Nama Produk</label>
+            <input
+              type="text"
+              class="form-control"
+              id="nama"
+              name="nama"
+              placeholder="Masukkan nama produk"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="name">Harga Produk</label>
+            <input
+              type="number"
+              class="form-control"
+              id="harga"
+              name="harga"
+              placeholder="Masukkan harga produk"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="name">Varian</label>
+            <input
+              type="text"
+              class="form-control"
+              id="varian"
+              name="varian"
+              placeholder="Masukkan varian produk"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="name">Bahan</label>
+            <input
+              type="text"
+              class="form-control"
+              id="bahan"
+              name="bahan"
+              placeholder="Masukkan bahan produk"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="name">Deskripsi</label>
+            <textarea
+              class="form-control"
+              id="exampleFormControlTextarea1"
+              placeholder="Masukan Deskripsi produk"
+              name="deskripsi"
+              rows="3"
+            ></textarea>
+          </div>
+          <div class="form-group">
+            <label for="name">Stok Produk</label>
+            <input
+              type="number"
+              class="form-control"
+              id="stok"
+              name="stok"
+              placeholder="Masukkan stok produk"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="name">Foto Produk</label>
+            <input
+              type="text"
+              class="form-control"
+              id="foto"
+              name="foto"
+              placeholder="Masukkan link foto produk"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <input
+              type="hidden"
+              class="form-control"
+              id="rating"
+              name="rating"
+              value="0"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <input
+              type="hidden"
+              class="form-control"
+              id="terjual"
+              name="terjual"
+              value="0"
+              required
+            />
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">
+            Close
+          </button>
+          <button type="submit" class="btn btn-primary">Add</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
